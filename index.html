@@ -1,0 +1,1090 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>axel 2027 · Nuestra mesa</title>
+<meta name="description" content="Plan integral de comunicación de campaña: Axel Kicillof Presidente 2027. Trabajo final del Grupo 2, Seminario de Consultoría y Comunicación Política Aplicada (UBA).">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800;900&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cel:#4FB3E8; --cel-d:#1F8FCB; --cel-l:#DDF0FB;
+  --noche:#0B2545; --noche-2:#13335C;
+  --blanco:#FFFFFF; --hueso:#F5F7FA;
+  --tierra:#C8553D; --yerba:#6A8D3A; --gris:#5A6B7D;
+  --r:20px;
+  --t-h:'Archivo',system-ui,sans-serif; --t-b:'Inter',system-ui,sans-serif; --t-m:'JetBrains Mono',ui-monospace,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{font-family:var(--t-b);color:var(--noche);background:var(--noche);-webkit-font-smoothing:antialiased;overflow:hidden}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+a{color:inherit}
+img{display:block;max-width:100%}
+:focus-visible{outline:3px solid var(--cel);outline-offset:3px;border-radius:6px}
+
+/* ---------- deck ---------- */
+#deck{height:100vh;height:100svh;overflow-y:auto;scroll-snap-type:y mandatory;scroll-behavior:smooth}
+.slide{position:relative;height:100vh;height:100svh;scroll-snap-align:start;overflow:hidden;display:flex;flex-direction:column;justify-content:center;padding:84px clamp(20px,5vw,80px) 64px}
+.claro{background:var(--blanco);color:var(--noche)}
+.oscuro{background:var(--noche);color:var(--blanco)}
+.celeste{background:var(--cel);color:var(--noche)}
+.wrap{width:100%;max-width:1280px;margin:0 auto;position:relative;z-index:2}
+
+/* top bar */
+.bar{position:fixed;inset:0 0 auto 0;height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(16px,3vw,40px);z-index:50;pointer-events:none;transition:color .3s}
+.bar>*{pointer-events:auto}
+.logo{font-family:var(--t-h);font-weight:900;font-size:22px;letter-spacing:-.03em;text-decoration:none;display:flex;align-items:baseline;gap:6px}
+.logo span{color:var(--cel)}
+.bar.sobre-celeste .logo span{color:var(--blanco)}
+.now{font-family:var(--t-m);font-size:12px;letter-spacing:.12em;text-transform:uppercase;opacity:.8}
+.bar.sobre-claro{color:var(--noche)} .bar.sobre-oscuro{color:var(--blanco)} .bar.sobre-celeste{color:var(--noche)}
+
+/* dots */
+.dots{position:fixed;right:clamp(10px,1.6vw,24px);top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:12px;z-index:50}
+.dots button{width:12px;height:12px;border-radius:50%;border:2px solid currentColor;opacity:.55;position:relative;transition:.25s}
+.dots button[aria-current="true"]{background:currentColor;opacity:1;transform:scale(1.15)}
+.dots button span{position:absolute;right:22px;top:50%;transform:translateY(-50%);white-space:nowrap;font-family:var(--t-m);font-size:11px;letter-spacing:.08em;text-transform:uppercase;background:var(--noche);color:var(--blanco);padding:4px 8px;border-radius:6px;opacity:0;pointer-events:none;transition:.2s}
+.dots button:hover span,.dots button:focus-visible span{opacity:1}
+.dots.sobre-claro{color:var(--noche)} .dots.sobre-oscuro{color:var(--blanco)} .dots.sobre-celeste{color:var(--noche)}
+
+/* type */
+.kick{font-family:var(--t-m);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--cel-d);margin-bottom:14px;display:inline-flex;gap:10px;align-items:center}
+.oscuro .kick{color:var(--cel)} .celeste .kick{color:var(--noche)}
+h1,h2,h3{font-family:var(--t-h);letter-spacing:-.03em;line-height:.95}
+h2{font-size:clamp(34px,5.2vw,72px);font-weight:900;margin-bottom:18px;text-wrap:balance}
+h2 em,h1 em{font-style:normal;color:var(--cel)}
+.claro h2 em{color:var(--cel-d)}
+.celeste h2 em{color:var(--blanco)}
+h3{font-size:22px;font-weight:800;letter-spacing:-.02em;line-height:1.1;margin-bottom:8px}
+.lead{font-size:clamp(16px,1.35vw,19px);line-height:1.5;max-width:62ch;opacity:.88}
+p{line-height:1.5}
+.src{font-family:var(--t-m);font-size:11px;color:var(--gris);margin-top:8px;letter-spacing:.02em}
+.oscuro .src{color:#9DB3C6}
+.celeste .src{color:var(--noche-2)}
+.big{font-family:var(--t-h);font-weight:900;letter-spacing:-.04em;line-height:.9;color:var(--cel-d)}
+.oscuro .big{color:var(--cel)}
+
+/* the table motif */
+.mesa{position:absolute;left:0;right:0;bottom:30px;height:28px;z-index:1;pointer-events:none;display:flex;align-items:flex-end;justify-content:center;gap:clamp(4px,1vw,14px);padding:0 6vw}
+.mesa::after{content:"";position:absolute;left:0;right:0;bottom:0;height:5px;background:var(--cel);border-radius:3px}
+.celeste .mesa::after{background:var(--blanco)}
+.silla{width:14px;height:20px;opacity:.9}
+.silla path{fill:none;stroke:var(--cel);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.celeste .silla path{stroke:var(--blanco)}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(18px);transition:opacity .5s ease,transform .5s ease}
+.slide.in .rv{opacity:1;transform:none}
+.slide.in .rv.d1{transition-delay:.08s}.slide.in .rv.d2{transition-delay:.16s}.slide.in .rv.d3{transition-delay:.24s}.slide.in .rv.d4{transition-delay:.32s}
+
+/* buttons, pills, cards */
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:999px;background:var(--cel);color:var(--noche);font-family:var(--t-h);font-weight:800;font-size:17px;transition:transform .2s,background .2s}
+.btn:hover{transform:translateY(-2px);background:#7CC8F0}
+.btn.ghost{background:transparent;border:2px solid currentColor;color:inherit;padding:10px 18px;font-size:15px}
+.btn.ghost:hover{background:rgba(79,179,232,.15)}
+.pill{display:inline-block;padding:7px 14px;border-radius:999px;font-size:14px;font-weight:500;border:1.5px solid rgba(255,255,255,.3)}
+.claro .pill{border-color:#D3DEE8}
+.card{border-radius:var(--r);padding:22px;background:var(--hueso)}
+.oscuro .card{background:var(--noche-2)}
+.celeste .card{background:rgba(255,255,255,.88)}
+.grid{display:grid;gap:16px}
+.g2{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
+
+/* tabs */
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 18px}
+.tabs button{padding:9px 16px;border-radius:999px;font-weight:600;font-size:14px;border:1.5px solid currentColor;opacity:.75}
+.tabs button[aria-selected="true"]{background:var(--cel);border-color:var(--cel);color:var(--noche);opacity:1}
+.panel[hidden]{display:none}
+
+/* flip cards */
+.flip{perspective:900px;min-height:150px;text-align:left}
+.flip .in{position:relative;display:block;width:100%;height:100%;min-height:inherit;transition:transform .55s;transform-style:preserve-3d}
+.flip[aria-pressed="true"] .in{transform:rotateY(180deg)}
+.flip .f,.flip .b{position:absolute;inset:0;border-radius:16px;padding:16px;backface-visibility:hidden;display:flex;flex-direction:column;justify-content:space-between}
+.flip .b{transform:rotateY(180deg)}
+.flip small{font-family:var(--t-m);font-size:10.5px;letter-spacing:.06em;opacity:.7;text-transform:uppercase}
+
+/* dialog */
+dialog{margin:auto;border:0;border-radius:24px;max-width:min(760px,92vw);max-height:86vh;padding:30px;background:var(--blanco);color:var(--noche);box-shadow:0 30px 80px rgba(0,0,0,.35)}
+dialog::backdrop{background:rgba(11,37,69,.7);backdrop-filter:blur(3px)}
+dialog h3{font-size:28px;margin-bottom:14px}
+dialog li{margin:0 0 10px 18px;line-height:1.5}
+dialog .x{position:absolute;top:14px;right:16px;font-size:26px;line-height:1;width:40px;height:40px;border-radius:50%}
+dialog .x:hover{background:var(--hueso)}
+dialog table{border-collapse:collapse;width:100%;font-size:14px;margin:8px 0 14px}
+dialog td,dialog th{border-bottom:1px solid #E3EAF1;padding:7px 6px;text-align:left}
+
+/* photo helpers */
+.foto{border-radius:var(--r);overflow:hidden;position:relative;background:var(--noche-2)}
+.foto img{width:100%;height:100%;object-fit:cover}
+.foto figcaption{position:absolute;left:10px;bottom:10px;right:10px;font-family:var(--t-m);font-size:10px;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.8);opacity:.85}
+
+/* ---------- 1 portada ---------- */
+#s1{padding-top:72px}
+#s1 .wrap{display:grid;grid-template-columns:1.25fr .75fr;gap:40px;align-items:center}
+#s1 h1{font-size:clamp(40px,5.2vw,80px);font-weight:900;letter-spacing:-.045em;line-height:.88;margin:12px 0 22px}
+#s1 .sub{font-size:clamp(16px,1.4vw,20px);opacity:.9;margin-bottom:10px;max-width:40ch}
+#s1 .retrato{aspect-ratio:3/4;border-radius:200px 200px var(--r) var(--r);overflow:hidden;position:relative;background:var(--cel)}
+#s1 .retrato img{width:100%;height:100%;object-fit:cover;object-position:50% 20%;mix-blend-mode:normal;filter:saturate(.9) contrast(1.05)}
+#s1 .retrato::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(11,37,69,.65))}
+.mesaG{margin:18px 0 22px;max-width:740px}
+.mg-big{height:64px;margin-bottom:4px;overflow:hidden}
+.mg-big small{display:block;font-family:var(--t-m);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--cel);min-height:1.3em}
+.mg-big b{display:block;white-space:nowrap;font-family:var(--t-h);font-weight:900;font-size:clamp(26px,2.6vw,40px);letter-spacing:-.03em;line-height:1.05;transition:opacity .16s,transform .16s}
+.mg-big b.out{opacity:0;transform:translateY(6px)}
+.mg-big b.uno{color:#F3A08C}
+.mg-area{position:relative;height:270px}
+.mg-tabla{position:absolute;left:3%;right:7%;top:50%;height:58px;transform:translateY(-50%);border-radius:29px;background:linear-gradient(180deg,#6CC2EE,#3FA6DE);box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.mg-s{position:absolute;width:30px;height:24px;margin-left:-15px;border:2.5px solid var(--cel);border-radius:6px 6px 3px 3px;background:var(--noche);animation:mgpop .45s cubic-bezier(.3,1.6,.5,1) both;transition:background .25s,border-color .25s,box-shadow .25s}
+.mg-s.top{top:calc(50% - 29px - 32px)}
+.mg-s.bot{top:calc(50% + 29px + 8px);border-radius:3px 3px 6px 6px}
+.mg-s i{position:absolute;left:50%;white-space:nowrap;font-style:normal;font:600 12px/1 var(--t-b);color:rgba(255,255,255,.82);transform-origin:0 50%}
+.mg-s.top i{bottom:30px;transform:rotate(-50deg)}
+.mg-s.bot i{top:30px;transform:rotate(50deg)}
+.mg-s.hl{background:#fff;border-color:#fff;box-shadow:0 0 0 6px rgba(79,179,232,.35)}
+.mg-s.uno{width:34px;height:58px;top:50%;margin-top:-29px;border-color:var(--tierra);background:var(--tierra);border-radius:8px}
+.mg-s.uno i{left:40px;top:50%;bottom:auto;transform:translateY(-50%);color:#F3A08C;font-weight:700;font-size:12px}
+.mesaG.reset .mg-s{opacity:0;transition:opacity .6s;animation:none}
+@keyframes mgpop{from{transform:scale(0);opacity:0}to{transform:none;opacity:1}}
+@keyframes pop{from{transform:scaleY(0);opacity:0}to{transform:none;opacity:1}}
+#s1 .tag{position:absolute;left:16px;bottom:16px;z-index:2;font-family:var(--t-h);font-weight:900;font-size:clamp(28px,3vw,44px);letter-spacing:-.04em;color:#fff;line-height:.9}
+#s1 .tag span{color:var(--cel)}
+#s1 .equipo{font-family:var(--t-m);font-size:11.5px;opacity:.7;margin-top:16px;line-height:1.7}
+
+/* ---------- 2 partida ---------- */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:22px 0}
+.stat{border-top:4px solid var(--cel);padding-top:12px}
+.stat .big{font-size:clamp(34px,4.2vw,62px)}
+.stat p{font-size:14.5px;margin-top:8px}
+.bars{display:flex;flex-direction:column;gap:10px}
+.barr{display:grid;grid-template-columns:150px 1fr 52px;align-items:center;gap:12px;font-size:14px}
+.barr .t{height:14px;border-radius:7px;background:#E7EEF5;overflow:hidden}
+.oscuro .barr .t{background:rgba(255,255,255,.1)}
+.barr .t i{display:block;height:100%;width:0;border-radius:7px;background:var(--cel);transition:width 1s cubic-bezier(.2,.8,.2,1)}
+.barr b{font-family:var(--t-m);font-weight:600;text-align:right}
+.banda{margin-top:20px;background:var(--noche);color:var(--blanco);border-radius:var(--r);padding:20px 24px;font-family:var(--t-h);font-weight:800;font-size:clamp(18px,1.8vw,26px);letter-spacing:-.02em;line-height:1.2}
+.banda em{font-style:normal;color:var(--cel)}
+
+/* ---------- 3 imagen ---------- */
+#s3 .wrap{display:grid;grid-template-columns:1fr 1.15fr;gap:40px;align-items:start}
+.split{display:flex;height:16px;border-radius:8px;overflow:hidden;margin:10px 0 4px}
+.split i{display:block}
+.leg{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;margin:6px 0 12px;opacity:.85}
+.leg span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;background:var(--c)}
+.actores{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.actores .flip{min-height:150px}
+.actores .f{background:var(--noche-2);border:1.5px solid rgba(79,179,232,.35)}
+.actores .f b{font-family:var(--t-h);font-weight:800;font-size:17px;line-height:1.1}
+.actores .b{background:var(--cel);color:var(--noche);font-size:12.5px;line-height:1.35}
+.actores .b strong{display:block;font-family:var(--t-h);font-size:13.5px;margin-bottom:4px}
+
+/* ---------- 4 foda ---------- */
+.foda{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:10px 0 16px}
+.foda button{border-radius:var(--r);padding:16px 18px;text-align:left;background:var(--hueso);transition:.25s;border:2px solid transparent}
+.foda button .L{font-family:var(--t-h);font-weight:900;font-size:clamp(54px,6vw,90px);line-height:.85;color:var(--cel-d)}
+.foda button[data-k="d"] .L,.foda button[data-k="a"] .L{color:var(--tierra)}
+.foda button span{display:block;font-weight:600;margin-top:6px}
+.foda button[aria-selected="true"]{background:var(--noche);color:#fff;border-color:var(--noche)}
+.foda button[aria-selected="true"] .L{color:var(--cel)}
+.fodalist{min-height:210px;border-radius:var(--r);padding:22px 26px;background:var(--cel-l)}
+.fodalist ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:10px 28px}
+.fodalist li{padding-left:22px;position:relative;line-height:1.45;font-size:15.5px}
+.fodalist li::before{content:"";position:absolute;left:0;top:8px;width:10px;height:10px;border-radius:50%;background:var(--cel-d)}
+.fodalist.neg{background:#F8E6E1}.fodalist.neg li::before{background:var(--tierra)}
+.cruce{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+.cruce div{border-left:4px solid var(--cel);padding:4px 0 4px 14px;font-size:15px}
+.cruce div:last-child{border-color:var(--tierra)}
+
+/* ---------- 5 estrategia ---------- */
+.obj{display:flex;gap:10px;flex-wrap:wrap;margin:6px 0 20px}
+.obj span{background:var(--noche);color:#fff;border-radius:999px;padding:9px 16px;font-size:14.5px}
+.obj b{color:var(--cel)}
+.publicos{display:grid;grid-template-columns:1fr 1.15fr 1fr;gap:14px;align-items:stretch}
+.pub{background:rgba(255,255,255,.9);border-radius:var(--r);padding:20px;display:flex;flex-direction:column;gap:8px;font-size:14px;line-height:1.45}
+.pub .big{font-size:clamp(44px,4.5vw,66px);color:var(--noche)}
+.pub.star{background:var(--noche);color:#fff;transform:translateY(-8px);box-shadow:0 18px 40px rgba(11,37,69,.3)}
+.pub.star .big{color:var(--cel)}
+.pub h3{font-size:24px;margin:0}
+.pub .canal{font-family:var(--t-m);font-size:11.5px;opacity:.8;margin-top:auto;padding-top:8px;border-top:1px dashed currentColor}
+.transv{margin-top:18px;font-size:15px;max-width:90ch}
+
+/* ---------- 6 voz propia ---------- */
+#s6 .bg{position:absolute;inset:0;z-index:0}
+#s6 .bg img{width:100%;height:100%;object-fit:cover;object-position:70% 30%;opacity:.16;filter:grayscale(1)}
+.por{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0}
+.por .card h3{color:var(--cel)}
+.por .card p{font-size:14.5px;opacity:.92}
+.quote{font-family:var(--t-h);font-weight:800;font-size:clamp(20px,2.2vw,32px);letter-spacing:-.02em;line-height:1.15;border-left:6px solid var(--cel);padding:4px 0 4px 20px;max-width:900px}
+.quote small{display:block;font-family:var(--t-b);font-weight:400;font-size:14px;letter-spacing:0;opacity:.75;margin-top:10px}
+.tools{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px;align-items:center}
+
+/* ---------- 7 mensaje ---------- */
+#s7 .wrap{display:grid;grid-template-columns:1.3fr .7fr;gap:40px;align-items:center}
+#s7 .slogan{font-size:clamp(36px,4.8vw,70px);font-weight:900;margin:4px 0 10px}
+#s7 .bajada{font-family:var(--t-h);font-weight:700;font-size:clamp(17px,1.6vw,23px);color:var(--cel-d);margin-bottom:18px}
+.conceptos{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:16px 0}
+.conceptos .flip{min-height:130px}
+.conceptos .f{background:var(--noche);color:#fff}
+.conceptos .f b{font-family:var(--t-h);font-size:22px;font-weight:900;letter-spacing:-.02em}
+.conceptos .b{background:var(--cel-l);font-size:13.5px;line-height:1.4}
+.corta{background:var(--cel);border-radius:var(--r);padding:16px 20px;font-family:var(--t-h);font-weight:800;font-size:clamp(17px,1.6vw,22px);letter-spacing:-.01em}
+#s7 .foto{aspect-ratio:4/5}
+.proto{font-size:13.5px;margin-top:14px;display:grid;gap:6px;opacity:.9}
+
+/* ---------- 8 redes ---------- */
+.r1grid{grid-template-columns:1.4fr 1fr;gap:24px}
+.obera>*,.r1grid>*,.ladob>*,.aai>*,.reelbox>*,.wrap>*{min-width:0}
+.redes-t{width:100%;border-collapse:collapse;font-size:14px;margin:10px 0}
+.redes-t th{font-family:var(--t-m);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--cel);text-align:left;padding:8px 10px}
+.redes-t td{padding:11px 10px;border-top:1px solid rgba(255,255,255,.12);vertical-align:top}
+.redes-t td:first-child{font-weight:700}
+.qr{display:flex;gap:16px;align-items:center;background:var(--cel);color:var(--noche);border-radius:var(--r);padding:16px}
+.qr svg{flex:0 0 84px;background:#fff;border-radius:10px;padding:6px}
+.rail{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:10px;scrollbar-width:thin}
+.rail figure{flex:0 0 clamp(200px,22vw,290px);aspect-ratio:4/5;scroll-snap-align:start}
+.rail figure figcaption{font-family:var(--t-h);font-size:15px;font-weight:800;letter-spacing:-.01em;bottom:12px;left:12px}
+.post{background:#fff;color:#111;border-radius:16px;overflow:hidden;font-size:13px;max-width:330px}
+.post header{display:flex;gap:8px;align-items:center;padding:9px 10px;font-weight:600}
+.post header i{width:28px;height:28px;border-radius:50%;background:var(--cel);display:grid;place-items:center;font-style:normal;font-family:var(--t-h);font-weight:900;font-size:12px;color:var(--noche)}
+.post .ph{aspect-ratio:1;position:relative}
+.post .ph img{width:100%;height:100%;object-fit:cover}
+.post .ph span{position:absolute;left:12px;bottom:12px;right:12px;font-family:var(--t-h);font-weight:900;font-size:22px;color:#fff;letter-spacing:-.02em;line-height:1;text-shadow:0 2px 10px rgba(0,0,0,.5)}
+.post p{padding:10px 12px 12px;line-height:1.4}
+.maq{display:inline-block;font-family:var(--t-m);font-size:10px;letter-spacing:.1em;text-transform:uppercase;background:var(--tierra);color:#fff;border-radius:6px;padding:3px 8px}
+.obera{display:grid;grid-template-columns:1.5fr 1fr;gap:24px;align-items:start}
+.cols2{display:grid;grid-template-columns:1fr 1fr;gap:10px;font-size:13.5px;margin-top:12px}
+.cols2 h4{font-family:var(--t-m);font-size:11px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px}
+.cols2 .si h4{color:var(--cel)} .cols2 .no h4{color:#F09A86}
+
+/* reel player */
+.reelbox{display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center}
+.reel{position:relative;width:min(300px,62vw);aspect-ratio:9/16;border-radius:24px;overflow:hidden;background:#000;box-shadow:0 20px 50px rgba(0,0,0,.4)}
+.reel .esc{position:absolute;inset:0;opacity:0;transition:opacity .6s}
+.reel .esc.on{opacity:1}
+.reel .esc img{width:100%;height:100%;object-fit:cover;transform:scale(1.02)}
+.reel .esc.on img{animation:kb 9s ease-out forwards}
+@keyframes kb{to{transform:scale(1.14) translate(-2%,-2%)}}
+.reel .esc::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.15) 0,transparent 30%,rgba(0,0,0,.65) 100%)}
+.reel .sub{position:absolute;left:14px;right:14px;bottom:56px;z-index:3;font-family:var(--t-h);font-weight:900;font-size:20px;line-height:1.08;letter-spacing:-.02em;color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.6)}
+.reel .sub em{font-style:normal;color:var(--cel);}
+.reel .top{position:absolute;top:12px;left:12px;right:12px;z-index:3;display:flex;justify-content:space-between;align-items:center;font-family:var(--t-m);font-size:10px;color:#fff}
+.reel .prog{position:absolute;left:12px;right:12px;bottom:18px;height:4px;background:rgba(255,255,255,.3);border-radius:2px;z-index:3}
+.reel .prog i{display:block;height:100%;width:0;background:var(--cel);border-radius:2px}
+.reel .play{position:absolute;inset:0;z-index:4;display:grid;place-items:center}
+.reel .play span{width:68px;height:68px;border-radius:50%;background:rgba(79,179,232,.95);display:grid;place-items:center;font-size:26px;color:var(--noche);transition:.2s}
+.reel.playing .play span{opacity:0}
+.reel .comment{position:absolute;left:14px;right:14px;top:34%;z-index:3;background:#fff;color:#111;border-radius:14px;padding:10px 12px;font-size:13px;box-shadow:0 10px 30px rgba(0,0,0,.4)}
+.reel .comment b{font-size:12px;display:block;margin-bottom:2px}
+.reel .dato{position:absolute;left:14px;right:14px;top:22%;z-index:3;display:grid;gap:8px}
+.reel .dato div{background:rgba(11,37,69,.85);border-radius:12px;padding:8px 12px;color:#fff;font-size:12px}
+.reel .dato b{font-family:var(--t-h);font-weight:900;font-size:26px;color:var(--cel);display:block;line-height:1}
+.reel .placa{position:absolute;inset:0;z-index:2;background:var(--cel);display:flex;flex-direction:column;justify-content:center;padding:22px;color:var(--noche)}
+.reel .placa b{font-family:var(--t-h);font-weight:900;font-size:30px;line-height:.95;letter-spacing:-.03em}
+.pasos{counter-reset:p;list-style:none;display:grid;gap:7px;font-size:14px}
+.pasos li{counter-increment:p;padding-left:34px;position:relative;line-height:1.4;opacity:.6;transition:.3s}
+.pasos li::before{content:counter(p);position:absolute;left:0;top:-1px;width:24px;height:24px;border-radius:50%;border:1.5px solid var(--cel);display:grid;place-items:center;font-family:var(--t-m);font-size:11px}
+.pasos li.on{opacity:1}
+.pasos li.on::before{background:var(--cel);color:var(--noche)}
+
+/* lado b */
+.ladob{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.mitos{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.mitos .flip{min-height:140px}
+.mitos .f{background:#FFE14D;color:#111;font-family:var(--t-h);font-weight:800;font-size:16px;line-height:1.15}
+.mitos .b{background:#fff;color:#111}
+.mitos .b strong{font-family:var(--t-h);font-weight:900;font-size:30px;color:var(--cel-d);line-height:1}
+.mitos .b p{font-size:12.5px;line-height:1.3}
+.juego{background:var(--noche-2);border-radius:var(--r);padding:18px}
+.juego input[type=range]{width:100%;accent-color:var(--cel);margin:14px 0 6px}
+.juego .val{font-family:var(--t-h);font-weight:900;font-size:44px;color:var(--cel)}
+.juego .res{min-height:44px;font-size:14px;margin-top:8px}
+.qsel{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+.qsel button{font-size:12px;padding:6px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.35)}
+.qsel button[aria-pressed="true"]{background:#FFE14D;color:#111;border-color:#FFE14D}
+
+/* ---------- 9 acciones ---------- */
+.aai{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:start}
+.datos-aai{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 14px}
+.datos-aai span{font-family:var(--t-m);font-size:12.5px;background:var(--noche);color:#fff;border-radius:8px;padding:6px 10px}
+.mesa24{position:relative;margin:8px 0 14px}
+.mesa24 .tab{display:grid;grid-template-columns:repeat(12,1fr) 1.6fr repeat(12,1fr);gap:3px;height:40px}
+.mesa24 .tab button{background:var(--cel-l);border-radius:4px;transition:.2s;position:relative}
+.mesa24 .tab button:hover,.mesa24 .tab button:focus-visible,.mesa24 .tab button.sel{background:var(--cel)}
+.mesa24 .tab button.axel{background:var(--noche)}
+.mesa24 .tab button{display:grid;place-items:center}
+.mesa24 .tab button .silla{width:55%;max-width:14px;height:22px;opacity:0;transform:scale(.3);transition:opacity .3s,transform .35s cubic-bezier(.3,1.6,.5,1)}
+.mesa24 .tab button .silla path{stroke:var(--noche)}
+.mesa24 .tab button.axel .silla path{stroke:var(--cel)}
+.mesa24 .tab button.lleno .silla{opacity:1;transform:none}
+.mesa24 .tab button.lleno{background:#A9DAF4}
+.mesa24 .info{font-size:14px;min-height:42px;margin-top:8px}
+.mesa24 .info b{font-family:var(--t-h)}
+.pasos3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:12px 0}
+.pasos3 div{background:var(--hueso);border-radius:16px;padding:14px;font-size:13.5px;line-height:1.4}
+.pasos3 b{font-family:var(--t-h);font-size:16px;display:block;margin-bottom:4px;color:var(--cel-d)}
+.semana{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;font-size:13px;line-height:1.4}
+.semana div{border-top:3px solid var(--cel);padding-top:8px}
+.semana div:last-child{border-color:var(--tierra)}
+.semana b{font-family:var(--t-h);font-size:15px;display:block}
+#s9 .foto{aspect-ratio:4/3}
+.spotgrid{display:grid;grid-template-columns:1.4fr 1fr;gap:28px;align-items:center}
+.spotgrid>*{min-width:0}
+.spotvid video{width:100%;aspect-ratio:16/9;border-radius:16px;background:#000;display:block;box-shadow:0 18px 40px rgba(11,37,69,.25)}
+.spot{display:grid;grid-template-columns:repeat(9,1fr);gap:4px;margin:14px 0}
+.spot button{border-radius:10px;overflow:hidden;position:relative;min-height:66px;background:var(--noche);color:#fff;text-align:left;padding:8px;display:flex;flex-direction:column;justify-content:flex-end;font-size:11px;line-height:1.2;transition:.2s;outline-offset:2px}
+.spot button b{font-family:var(--t-m);font-size:10px;color:var(--cel)}
+.spot button.sel{background:var(--cel);color:var(--noche)}
+.spot button.sel b{color:var(--noche)}
+.spot-det{background:var(--hueso);border-radius:var(--r);padding:18px 22px;min-height:96px}
+.spot-det q{font-family:var(--t-h);font-weight:800;font-size:clamp(18px,1.8vw,24px);letter-spacing:-.02em;display:block;margin-top:6px}
+
+/* ---------- 10 calendario ---------- */
+.linea{position:relative;margin:30px 0 10px;padding-top:12px}
+.etapas{display:grid;grid-template-columns:4fr 1fr 3fr 1.4fr .8fr .5fr;gap:3px;height:34px}
+.etapas div{border-radius:6px;font-size:11px;font-weight:600;padding:9px 6px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;color:var(--noche)}
+.hitos{position:relative;height:130px;margin-top:6px}
+#s10 .mesa{bottom:14px}
+#s10 .pie{margin-bottom:10px}
+.hito{position:absolute;top:0;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:5px;width:16px}
+.hito i{width:12px;height:12px;border-radius:50%;background:var(--cel);border:2px solid var(--noche);box-shadow:0 0 0 2px var(--cel)}
+.hito.big i{width:20px;height:20px;background:var(--tierra);box-shadow:0 0 0 3px var(--tierra)}
+.hito span{writing-mode:vertical-rl;transform:rotate(180deg);font-size:11.5px;white-space:nowrap;opacity:.85}
+.hito.big span{font-weight:700;opacity:1}
+.fin{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:10px 0 16px}
+.fin div{font-size:15px;line-height:1.35;border-left:4px solid var(--cel);padding-left:12px}
+.fin b{font-family:var(--t-h);font-weight:800}
+.cierre{font-family:var(--t-h);font-weight:900;font-size:clamp(30px,4vw,58px);letter-spacing:-.04em;line-height:.95}
+.cierre em{font-style:normal;color:var(--cel)}
+.pie{font-family:var(--t-m);font-size:11px;opacity:.65;margin-top:16px;line-height:1.7}
+
+
+/* celulares */
+.piezas{display:grid;grid-template-columns:1fr auto auto 1fr;gap:28px;align-items:center}
+.pz-txt h3{font-size:clamp(20px,1.8vw,26px);margin:10px 0 8px}
+.pz-txt p{font-size:14px;opacity:.9}
+.phone{width:clamp(220px,17vw,268px);aspect-ratio:9/19;border-radius:42px;background:#05080d;padding:9px;box-shadow:0 0 0 2px #2a3442,0 30px 60px rgba(0,0,0,.45);position:relative}
+.phone::before{content:"";position:absolute;top:16px;left:50%;transform:translateX(-50%);width:76px;height:20px;border-radius:12px;background:#05080d;z-index:9}
+.screen{width:100%;height:100%;border-radius:34px;overflow:hidden;position:relative;background:#fff;color:#111;font-family:var(--t-b)}
+.sbar{display:flex;justify-content:space-between;padding:12px 20px 4px;font-size:11px;font-weight:600;position:relative;z-index:5}
+.ig .ighead{display:flex;align-items:center;gap:8px;padding:10px 12px 8px;font-size:12px;line-height:1.15}
+.ig .ighead i,.rlfoot i{width:28px;height:28px;border-radius:50%;background:var(--cel);display:inline-grid;place-items:center;font-style:normal;font-family:var(--t-h);font-weight:900;font-size:11px;color:var(--noche);flex:0 0 28px;box-shadow:0 0 0 2px #fff,0 0 0 3.5px var(--tierra)}
+.ig .ighead small{display:block;font-size:10.5px;color:#666}
+.ig .ighead>span{margin-left:auto;font-weight:700}
+.ig .media{aspect-ratio:4/5;overflow:hidden;position:relative;background:var(--noche);cursor:pointer}
+.ig .track{display:flex;height:100%;transition:transform .55s cubic-bezier(.4,0,.2,1)}
+.ig .track img{flex:0 0 100%;width:100%;height:100%;object-fit:cover}
+.igact{display:flex;align-items:center;gap:12px;padding:9px 12px 4px}
+.igact svg{width:21px;height:21px;fill:none;stroke:#111;stroke-width:1.8;stroke-linejoin:round}
+.igact svg:last-child{margin-left:auto}
+.pdots{display:flex;gap:4px;position:absolute;left:50%;transform:translateX(-50%)}
+.igact{position:relative}
+.pdots i{width:5px;height:5px;border-radius:50%;background:#c7c7c7;transition:.3s}
+.pdots i.on{background:var(--cel-d)}
+.igcap{font-size:11.5px;line-height:1.35;padding:4px 12px}
+.rl{background:#000;color:#fff}
+.rl video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.rl .sbar{color:#fff}
+.rlside{position:absolute;right:10px;bottom:120px;display:flex;flex-direction:column;gap:14px;align-items:center;font-size:20px;z-index:3;text-shadow:0 1px 4px rgba(0,0,0,.6)}
+.rlside span{display:flex;flex-direction:column;align-items:center}
+.rlside small{font-size:9.5px;font-weight:600}
+.rlfoot{position:absolute;left:12px;right:52px;bottom:22px;z-index:3;font-size:11px;line-height:1.35;text-shadow:0 1px 4px rgba(0,0,0,.7)}
+.rlfoot b{display:flex;align-items:center;gap:7px;font-size:12px;margin-bottom:4px}
+.rlsound{position:absolute;top:44px;right:12px;z-index:4;width:30px;height:30px;border-radius:50%;background:rgba(0,0,0,.45);color:#fff;font-size:11px}
+@media (max-width:1100px){.piezas{grid-template-columns:auto auto}.pz-txt{grid-column:span 2}}
+@media (max-width:560px){.piezas{grid-template-columns:1fr;justify-items:center}.pz-txt{grid-column:auto;justify-self:stretch}.phone{width:min(268px,76vw)}}
+
+/* flechas + modo presentación */
+.pager{position:fixed;right:clamp(14px,2.4vw,36px);bottom:18px;z-index:60;display:flex;gap:8px}
+.pager button{display:inline-flex;align-items:center;gap:8px;height:42px;padding:0 16px;border-radius:999px;font-weight:600;font-size:14px;border:1.5px solid currentColor;background:rgba(11,37,69,.55);backdrop-filter:blur(6px);transition:.2s}
+.pager.sobre-claro button{background:rgba(255,255,255,.8)}
+.pager.sobre-celeste button{background:rgba(255,255,255,.55)}
+.pager button:hover:not(:disabled){background:var(--cel);border-color:var(--cel);color:var(--noche)}
+.pager button:disabled{opacity:.3;cursor:default}
+.pager .pres{background:var(--cel)!important;border-color:var(--cel);color:var(--noche)}
+.pager.sobre-claro{color:var(--noche)} .pager.sobre-oscuro{color:#fff} .pager.sobre-celeste{color:var(--noche)}
+body.present #deck{overflow:hidden;scroll-snap-type:none}
+body.present .pager button span{display:none}
+body.present .pager{opacity:.35;transition:opacity .3s}
+body.present .pager:hover{opacity:1}
+@media (max-width:900px){.pager .pres{display:none}.pager button{height:38px;padding:0 13px}.pager button span{display:none}}
+
+/* ---------- responsive ---------- */
+@media (max-width:1100px){
+  .actores{grid-template-columns:repeat(2,1fr)}
+  .spot{grid-template-columns:repeat(5,1fr)}
+}
+@media (max-width:900px), (max-height:640px){
+  body{overflow:auto}
+  #deck{height:auto;overflow:visible;scroll-snap-type:none}
+  .slide{height:auto;min-height:100svh;padding:80px 18px 80px}
+  .dots{display:none}
+  .g3,.g4,.stats,.por,.publicos,.conceptos,.pasos3,.semana,.fin,.cruce{grid-template-columns:1fr 1fr}
+  #s1 .wrap,#s3 .wrap,#s7 .wrap,.aai,.obera,.ladob,.reelbox,.r1grid,.spotgrid{grid-template-columns:1fr}
+  .qr{flex-wrap:wrap}
+  #s1 .retrato{max-width:320px}
+  .pub.star{transform:none}
+  .fodalist ul{grid-template-columns:1fr}
+  .foda{grid-template-columns:repeat(4,1fr)}
+  .hitos{height:170px}
+}
+@media (max-width:560px){
+  .stats,.por,.publicos,.conceptos,.pasos3,.semana,.fin,.cruce,.mitos,.g2{grid-template-columns:1fr}
+  .foda{grid-template-columns:repeat(2,1fr)}
+  .actores{grid-template-columns:1fr 1fr}
+  .barr{grid-template-columns:110px 1fr 44px}
+  .etapas div{font-size:0}
+  .linea{overflow-x:auto}
+  .linea>div{min-width:640px}
+  .spot{grid-template-columns:repeat(3,1fr)}
+  .mesa{display:none}
+  .mg-area{height:200px}
+  .mg-s{width:18px;height:16px;margin-left:-9px}
+  .mg-s i{font-size:9.5px}
+  .mg-s.top{top:calc(50% - 23px - 24px)}
+  .redes-t{font-size:12.5px}
+  .redes-t th:nth-child(4),.redes-t td:nth-child(4){display:none}
+  .grid>*,.wrap>*{min-width:0}
+  .now{display:none}
+}
+/* modo presentación: siempre 1 slide = 1 pantalla, aunque la pantalla sea chica */
+body.present{overflow:hidden}
+body.present #deck{height:100vh;height:100dvh;overflow:hidden}
+body.present .slide{height:100vh;height:100dvh;min-height:0;padding:68px clamp(20px,4vw,64px) 72px}
+body.present .dots{display:flex}
+body.present .mesa{display:flex}
+@media (min-width:901px){
+  body.present .piezas{grid-template-columns:1fr auto auto 1fr;gap:20px}
+  body.present .pz-txt{grid-column:auto}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *{transition:none!important;animation:none!important;scroll-behavior:auto!important}
+  .rv{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<header class="bar sobre-oscuro" id="bar">
+  <a class="logo" href="#s1" aria-label="Ir al inicio">axel <span>2027</span></a>
+  <span class="now" id="now">Portada</span>
+</header>
+<nav class="dots sobre-oscuro" id="dots" aria-label="Slides"></nav>
+
+<main id="deck">
+
+<!-- 1 PORTADA -->
+<section class="slide oscuro" id="s1" data-name="Portada" data-tema="oscuro">
+  <div class="wrap">
+    <div>
+      <p class="kick rv">Seminario: Consultoría y Comunicación Política Aplicada · UBA · Grupo 2</p>
+      <h1>en nuestra mesa siempre hay <em>silla para uno más</em></h1>
+      <p class="sub rv d2">Plan integral de comunicación de campaña · Axel Kicillof Presidente 2027</p>
+      <div class="mesaG" id="mesaG" aria-label="Animación: una mesa larga a la que se suman sillas de las 24 provincias, después un jubilado, una estudiante, una pyme, una yerbatera, y siempre una silla más">
+        <div class="mg-big"><small id="mgKick">&nbsp;</small><b id="mgTxt">&nbsp;</b></div>
+        <div class="mg-area" id="mgArea"><div class="mg-tabla"></div></div>
+      </div>
+      <a class="btn rv d3" href="#s2">+ sumá una silla</a>
+      <p class="equipo rv d4">Matías Balmaceda · Maia Fleischman · Sofía García · Pilar Peón · Blas Leandro Sires</p>
+    </div>
+    <figure class="retrato">
+      <img src="fotos/axel-retrato.jpg" alt="Axel Kicillof sonriendo, de camisa celeste y saco oscuro">
+      <span class="tag">axel<br><span>2027</span></span>
+    </figure>
+  </div>
+</section>
+
+<!-- 2 PUNTO DE PARTIDA -->
+<section class="slide claro" id="s2" data-name="Punto de partida" data-tema="claro">
+  <div class="wrap">
+    <p class="kick rv">Diagnóstico</p>
+    <h2 class="rv d1">un gobierno desgastado y un laburo que <em>no alcanza</em></h2>
+    <div class="stats">
+      <div class="stat rv d1"><span class="big" data-count="58.8" data-dec="1">0</span><span class="big">%</span><p>desaprueba la gestión de Milei (31,4 % la aprueba).</p><p class="src">Zentrix · ago 2026</p></div>
+      <div class="stat rv d2"><span class="big" data-count="48">0</span><span class="big">%</span><p>pide un cambio importante de rumbo.</p><p class="src">Brief de la cátedra</p></div>
+      <div class="stat rv d3"><span class="big" data-count="437611">0</span><p>empleos formales perdidos y 32.290 empresas cerradas desde diciembre de 2023.</p><p class="src">CEPA · 2026</p></div>
+      <div class="stat rv d4"><span class="big" data-count="33.4" data-dec="1">0</span><span class="big">%</span><p>de inflación interanual en septiembre (1,9 % mensual).</p><p class="src">INDEC · 2026</p></div>
+    </div>
+    <div class="grid g2" style="align-items:start">
+      <div class="rv d2">
+        <h3>Lo que más preocupa</h3>
+        <div class="bars">
+          <div class="barr"><span>Economía</span><span class="t"><i data-w="58"></i></span><b>58 %</b></div>
+          <div class="barr"><span>Empleo y salarios</span><span class="t"><i data-w="47"></i></span><b>47 %</b></div>
+          <div class="barr"><span>Inseguridad</span><span class="t"><i data-w="34" style="background:var(--tierra)"></i></span><b>34 %</b></div>
+        </div>
+        <p class="src">Brief de la cátedra. La inseguridad crece entre mayores de 50.</p>
+      </div>
+      <div class="card rv d3">
+        <h3>Un electorado volátil</h3>
+        <p style="font-size:15px">Crece el "ningunismo". Predomina una mirada privatista (54 % contra 40 % estatista), pero <b>3 de cada 4</b> rechazan recortar educación, salud y cultura.</p>
+        <p class="src">Pulsar UBA · 2025</p>
+      </div>
+    </div>
+    <p class="banda rv d4">El debate sobre el tamaño del Estado favorece a Milei. <em>El debate sobre los ingresos de la gente favorece a Kicillof.</em></p>
+    <p class="src">Supuesto de trabajo: elección presidencial el domingo 24 de octubre de 2027.</p>
+  </div>
+</section>
+
+<!-- 3 IMAGEN Y ACTORES -->
+<section class="slide oscuro" id="s3" data-name="Imagen y actores" data-tema="oscuro">
+  <div class="wrap">
+    <div>
+      <p class="kick rv">Imagen</p>
+      <h2 class="rv d1" style="font-size:clamp(30px,3.6vw,52px)">no hay que instalarlo: hay que cambiar <em>cómo se lo mira</em></h2>
+      <div class="rv d2" style="display:flex;align-items:flex-end;gap:16px">
+        <span class="big" style="font-size:clamp(70px,8vw,120px)"><span data-count="93">0</span>%</span>
+        <p style="padding-bottom:12px">lo conoce.<br>40 % positiva · 39 % negativa.</p>
+      </div>
+      <div class="split rv d2" aria-label="Imagen positiva 40 %, regular y sin opinión 21 %, negativa 39 %"><i style="width:40%;background:var(--cel)"></i><i style="width:21%;background:rgba(255,255,255,.2)"></i><i style="width:39%;background:var(--tierra)"></i></div>
+      <div class="leg rv d2"><span style="--c:var(--cel)">Positiva</span><span style="--c:rgba(255,255,255,.3)">Regular / sin opinión</span><span style="--c:var(--tierra)">Negativa</span></div>
+      <h3 class="rv d3" style="font-size:17px;margin-top:6px">Con qué lo asocian</h3>
+      <div class="bars rv d3">
+        <div class="barr"><span>Preparación</span><span class="t"><i data-w="30" data-max="35"></i></span><b>30 %</b></div>
+        <div class="barr"><span>Honestidad</span><span class="t"><i data-w="25" data-max="35"></i></span><b>25 %</b></div>
+        <div class="barr"><span>Corrupción</span><span class="t"><i data-w="20" data-max="35" style="background:var(--tierra)"></i></span><b>20 %</b></div>
+        <div class="barr"><span>Cercanía</span><span class="t"><i data-w="15" data-max="35" style="background:#fff;opacity:.6"></i></span><b>15 %</b></div>
+        <div class="barr"><span>Liderazgo</span><span class="t"><i data-w="10" data-max="35" style="background:#fff;opacity:.6"></i></span><b>10 %</b></div>
+        <div class="barr"><span>Consenso</span><span class="t"><i data-w="10" data-max="35" style="background:#fff;opacity:.6"></i></span><b>10 %</b></div>
+      </div>
+      <div class="leg rv d3"><span style="--c:var(--cel)">Fortaleza a reforzar</span><span style="--c:rgba(255,255,255,.6)">Débil, a construir</span><span style="--c:var(--tierra)">Negativo, a neutralizar</span></div>
+      <p class="src rv d4">Imagen positiva por segmento: PBA 51 % · NSE bajo 47 % · menores de 30 45 % · total país 40 % · NSE alto 29 % · CABA 27 %. Brief de la cátedra (2026).</p>
+    </div>
+    <div>
+      <p class="kick rv">Mapa de actores · tocá cada tarjeta</p>
+      <div class="actores" id="actores"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 4 FODA -->
+<section class="slide claro" id="s4" data-name="FODA" data-tema="claro">
+  <div class="wrap">
+    <p class="kick rv">FODA · tocá cada letra</p>
+    <h2 class="rv d1">dónde estamos <em>parados</em></h2>
+    <div class="foda rv d2" role="tablist" id="foda"></div>
+    <div class="fodalist rv d3" id="fodalist" role="tabpanel" aria-live="polite"></div>
+    <div class="cruce rv d4">
+      <div><b>F × O.</b> Usar la autoridad de economista y la obra demostrable para disputar la agenda económica.</div>
+      <div><b>D × A.</b> La imagen bonaerense y la tensión con CFK se neutralizan con armado federal y voz propia.</div>
+    </div>
+  </div>
+</section>
+
+<!-- 5 ESTRATEGIA -->
+<section class="slide celeste" id="s5" data-name="Estrategia" data-tema="celeste">
+  <div class="wrap">
+    <p class="kick rv">Estrategia</p>
+    <h2 class="rv d1">no hay que instalarlo: hay que <em>cambiar el marco</em></h2>
+    <p class="lead rv d1">De "más Estado o menos Estado" a <b>un Estado que funciona</b>: eficaz, moderno y medible.</p>
+    <div class="obj rv d2"><span><b>Piso ·</b> principal fuerza opositora y ballotage competitivo</span><span><b>Techo ·</b> ganar en primera vuelta si se profundiza el deterioro</span></div>
+    <div class="publicos">
+      <div class="pub rv d2"><span class="kick" style="margin:0">Movilización</span><span class="big"><span data-count="35">0</span>%</span><h3>Núcleo</h3><p>PBA (51 %), NSE bajo (47 %), menores de 30 (45 %). Convertir el apoyo en voto.</p><p class="canal">Territorio · TV y radios del conurbano · WhatsApp de voluntarios · TikTok, Reels y streaming</p></div>
+      <div class="pub star rv d3"><span class="kick" style="margin:0">Persuasión · la elección se define acá</span><span class="big"><span data-count="45">0</span>%</span><h3>Sectores medios y 7 provincias</h3><p>Imagen regular (14 %), sin opinión (7 %). Chubut, La Pampa, Jujuy, Neuquén, Corrientes, Entre Ríos y Misiones. Ganar el voto con datos de gestión.</p><p class="canal">TV abierta y cable · radios y TV provinciales · pauta geolocalizada · timbreo</p></div>
+      <div class="pub rv d4"><span class="kick" style="margin:0">Comprensión</span><span class="big"><span data-count="20">0</span>%</span><h3>Rechazo alto</h3><p>CABA, Córdoba, Mendoza, Santa Fe y NSE alto. Que discutan dentro de nuestro marco, sin buscar el voto.</p><p class="canal">Entrevistas técnicas en medios de referencia · hilos con datos en X · clases en YouTube</p></div>
+    </div>
+    <p class="transv rv d4"><b>Transversal:</b> el laburo en todas sus formas: asalariados, informales, cuentapropistas, monotributistas, trabajadores de plataformas y changarines. Que alcance, que sea estable y que tenga derechos.</p>
+    <p class="rv d4" style="margin-top:12px"><button class="btn ghost" data-open="dlg-obj">Ver los 7 objetivos</button></p>
+  </div>
+  <div class="mesa" data-sillas="10"></div>
+</section>
+
+<!-- 6 VOZ PROPIA -->
+<section class="slide oscuro" id="s6" data-name="Voz propia" data-tema="oscuro">
+  <div class="bg"><img src="fotos/axel-habla.jpg" alt=""></div>
+  <div class="wrap">
+    <p class="kick rv">Voz propia · ni K ni anti-K</p>
+    <h2 class="rv d1">la diferencia no se declara, <em>se demuestra</em></h2>
+    <p class="lead rv d1">Kicillof no habla de CFK por iniciativa propia, ni para criticarla ni para reivindicarla. Es un silencio estratégico.</p>
+    <div class="por">
+      <div class="card rv d2"><h3>¿Por qué no romper?</h3><p>El núcleo K sostiene el piso (51 % en PBA, 47 % en NSE bajo). Romper desmoviliza, abre una interna y fragmenta el voto opositor.</p></div>
+      <div class="card rv d3"><h3>¿Por qué no reivindicar?</h3><p>Refuerza el rechazo en persuasión y comprensión, y alimenta el ataque más previsible: "sos Cristina".</p></div>
+      <div class="card rv d4"><h3>¿Por qué el silencio?</h3><p>Cada minuto hablando de CFK es un minuto menos de economía y gestión. Hablar del tema, aunque sea para despegarse, lo instala.</p></div>
+    </div>
+    <p class="kick rv d3" style="margin-top:6px">La respuesta única</p>
+    <blockquote class="quote rv d3">"Tengo respeto por su historia y por los millones que la votaron, pero esta elección es sobre cómo salimos de este presente."<small>Y se pivotea a un dato económico o de gestión. No se agrega nada más, aunque se repregunte.</small></blockquote>
+    <div class="tools rv d4">
+      <span class="pill">Disciplina de voceros</span><span class="pill">Estética propia</span><span class="pill">Armado visible más amplio</span><span class="pill">Vínculo con el núcleo en el territorio, no en los medios</span><span class="pill">Un solo adversario público: Milei</span>
+      <button class="btn ghost" data-open="dlg-cont">Si pasa…</button>
+    </div>
+  </div>
+</section>
+
+<!-- 7 MENSAJE -->
+<section class="slide claro" id="s7" data-name="Mensaje" data-tema="claro">
+  <div class="wrap">
+    <div>
+      <p class="kick rv">Slogan</p>
+      <h2 class="slogan rv d1">en nuestra mesa siempre hay <em>silla para uno más.</em></h2>
+      <p class="bajada rv d1">Un Estado que funciona: ordenar la economía sin dejar a nadie tirado.</p>
+      <p class="rv d2" style="font-size:15.5px;max-width:64ch"><b>La metáfora.</b> "Nuestra mesa" es un país federal donde se dialoga con las provincias. <b>Es amplia, pero no neutral:</b> convoca a quienes sienten que este rumbo no les cierra. Frente a los gritos y el ajuste, una mesa donde se escucha y se resuelve.</p>
+      <div class="conceptos" id="conceptos"></div>
+      <p class="corta rv d3">Que el laburo alcance. Un Estado que funcione, sin dejar a nadie tirado.</p>
+      <div class="proto rv d4">
+        <span><b>Corrupción →</b> no polemizar: remitir al dato verificable y al tablero abierto de gestión.</span>
+        <span><b>"Más Estado" →</b> "No quiero más Estado. Quiero un Estado que funcione, que es otra cosa."</span>
+      </div>
+      <p class="rv d4" style="margin-top:14px"><button class="btn" data-open="dlg-tv">▶ La respuesta en TV: "¿por qué votarlo?"</button></p>
+    </div>
+    <figure class="foto rv d2"><img src="fotos/axel-escuela.jpg" alt="Kicillof con docentes y auxiliares en una escuela de Coronel Suárez" style="object-position:50% 40%"><figcaption>Escuela N.º 12, Coronel Suárez (2022). Wikimedia Commons · CC BY 2.5 AR</figcaption></figure>
+  </div>
+</section>
+
+<!-- 8 REDES -->
+<section class="slide oscuro" id="s8" data-name="Redes" data-tema="oscuro">
+  <div class="wrap">
+    <p class="kick">Plan de redes</p>
+    <h2 style="font-size:clamp(30px,4vw,56px);margin-bottom:6px">cada red, <em>una tarea</em></h2>
+    <div class="tabs" role="tablist" data-tabs="redes">
+      <button role="tab" aria-selected="true" data-p="r2">Las piezas</button>
+      <button role="tab" aria-selected="false" data-p="r1">Estrategia</button>
+      <button role="tab" aria-selected="false" data-p="r4">Una silla más</button>
+    </div>
+
+    <div class="panel" id="r1" role="tabpanel" hidden>
+      <div class="grid r1grid">
+        <div>
+          <p style="font-size:15px;opacity:.9">Las redes llevan el eje de "Estado sí / Estado no" a <b>eficacia y resultados</b>. Temas: <b>1)</b> laburo e ingresos · <b>2)</b> educación y salud pública · <b>3)</b> lo federal. La seguridad no se evita: se trata con gestión concreta.</p>
+          <table class="redes-t">
+            <thead><tr><th>Público</th><th>Red</th><th>Formato</th><th>Tono</th></tr></thead>
+            <tbody>
+              <tr><td>Núcleo y jóvenes</td><td>TikTok y Reels</td><td>Breve, frecuente, detrás de escena</td><td>Cercano, con humor</td></tr>
+              <tr><td>Persuasión</td><td>Carruseles de IG y Facebook con pauta geolocalizada</td><td>Datos simples, testimonios</td><td>Sereno y propositivo</td></tr>
+              <tr><td>Comprensión</td><td>X y YouTube</td><td>Hilos con datos, clases, entrevistas largas</td><td>Técnico y respetuoso</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div style="display:grid;gap:12px;align-content:start">
+          <div class="card" style="font-size:14px;line-height:1.5"><h3 style="font-size:17px;color:var(--cel)">Reglas de la cuenta oficial</h3>Siempre positiva y propositiva · cada pieza con un dato verificable y su fuente, enlazado al tablero abierto de gestión · simbología partidaria mínima · trabajadores formales e informales en todas las piezas.</div>
+          <div class="qr">
+            <svg viewBox="0 0 21 21" aria-label="QR de ejemplo" role="img"><path fill="#0B2545" d="M0 0h7v7H0zM1 1v5h5V1zM2 2h3v3H2zM14 0h7v7h-7zm1 1v5h5V1zm1 1h3v3h-3zM0 14h7v7H0zm1 1v5h5v-5zm1 1h3v3H2zM8 0h1v2H8zm2 1h2v1h-2zM9 3h3v1H9zm-1 2h2v2H8zm3 0h1v3h-1zM8 8h3v1H8zM0 8h2v1H0zm3 0h3v2H3zm9 1h3v1h-3zm4-1h2v2h-2zm3 0h2v1h-2zM1 10h1v2H1zm4 1h4v1H5zm6-1h1v2h-1zm2 1h2v2h-2zm5 0h3v1h-3zM8 13h2v2H8zm3 0h2v1h-2zm5 0h2v3h-2zm3 1h2v2h-2zM9 16h3v1H9zm4 1h2v2h-2zm-5 2h3v2H8zm8 0h2v2h-2zm3 0h2v2h-2z"/></svg>
+            <div><b style="font-family:var(--t-h);font-size:19px">¿Qué le falta a tu mesa?</b><p style="font-size:13.5px;margin-top:4px">Plataforma con QR en timbreos, mesitas y redes. Junta demandas georreferenciadas y alimenta contenidos ("esto nos dijeron en Corrientes") y el Acta de la Mesa Federal.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel" id="r2" role="tabpanel">
+      <div class="piezas">
+        <div class="pz-txt">
+          <span class="maq">Carrusel · Instagram y Facebook</span>
+          <h3>"Nuestra mesa" en Oberá</h3>
+          <p>Misiones es provincia de persuasión: la crisis yerbatera permite hablar de laburo, ingresos y federalismo a la vez. Tres paradas: secadero cooperativo, escuela agrotécnica y mesa larga al aire libre.</p>
+          <div class="cols2">
+            <div class="si"><h4>Mostramos</h4>Al candidato escuchando · tierra colorada · manos cosechando · el mate que le pasan · la mesa que se alarga.</div>
+            <div class="no"><h4>Evitamos</h4>Atril · escenario · banderas · pecheras · planos de acto.</div>
+          </div>
+          <p class="src">También: reel de 45–60 s, historias, foto + hilo en X y corte de 15 s para pauta en el NEA. Referencia: Zohran Mamdani (Nueva York, 2025).</p>
+        </div>
+
+        <div class="phone" aria-label="Celular con el carrusel de Oberá">
+          <div class="screen ig">
+            <div class="sbar"><span>9:41</span><span>●●● ▮</span></div>
+            <div class="ighead"><i>ak</i><div><b>axelkicillof</b><small>Oberá, Misiones</small></div><span>···</span></div>
+            <div class="media" id="carru"><div class="track"></div></div>
+            <div class="igact"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg><svg viewBox="0 0 24 24"><path d="M20 12a8 8 0 1 1-3-6.2L20 4l-1 4A8 8 0 0 1 20 12z"/></svg><svg viewBox="0 0 24 24"><path d="M21 3 3 10l7 3 3 7z"/></svg><span class="pdots" id="carruDots"></span><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4z"/></svg></div>
+            <p class="igcap"><b>axelkicillof</b> En Oberá, la yerba no se mide en kilos, se mide en trabajo. Familias que cosechan hace tres generaciones y hoy no cubren los costos. Vinimos a escuchar. 🧉</p>
+          </div>
+        </div>
+
+        <div class="phone" aria-label="Celular con el reel de la Mesa Larga">
+          <div class="screen rl">
+            <video id="reelV" src="piezas/reel-mesa-larga.mp4" poster="piezas/reel-mesa-larga.jpg" muted loop playsinline preload="metadata"></video>
+            <div class="sbar"><span>9:41</span><span>●●● ▮</span></div>
+            <div class="rlside"><span>♡<small>12,4 mil</small></span><span>💬<small>1.208</small></span><span>➤<small>3.511</small></span></div>
+            <div class="rlfoot"><b><i>ak</i>axelkicillof</b><span>Este sábado, el país se sienta a la mesa. 4/9 · 18 h · Casa Histórica, Tucumán</span></div>
+            <button class="rlsound" id="reelSnd" aria-label="Activar el sonido del reel">🔇</button>
+          </div>
+        </div>
+
+        <div class="pz-txt">
+          <span class="maq">Reel · Instagram y TikTok · 34 s</span>
+          <h3>Convocatoria: la Mesa Larga de las 24 provincias</h3>
+          <ol class="pasos" id="pasos">
+            <li>"Este sábado, el país se sienta a la mesa."</li>
+            <li>Casa Histórica: "Acá se sentaron a pensar un país."</li>
+            <li>"211 años después, volvemos. Con los que laburan."</li>
+            <li>150 m · 24 tramos: uno por provincia y uno por la Ciudad.</li>
+            <li>"En cada tramo, alguien que labura."</li>
+            <li>"Vengo a escuchar a las 24 provincias."</li>
+            <li>"Y a comprometerme con lo que me digan."</li>
+            <li>Sábado 4/9 · 18 h · Casa Histórica, Tucumán.</li>
+            <li>Placa: "En nuestra mesa siempre hay silla para uno más."</li>
+          </ol>
+          <p class="src">Tocá 🔇 para escucharlo con sonido. Maqueta con fotos de archivo: las frases son la propuesta del grupo, no declaraciones reales. <a href="piezas/reel-mesa-larga.mp4" download>Bajar el reel</a></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel" id="r4" role="tabpanel" hidden>
+      <div class="ladob">
+        <div>
+          <h3 style="font-size:clamp(26px,3vw,40px);font-weight:900">@unasillamas</h3>
+          <p style="font-size:14.5px;opacity:.9;margin-bottom:12px">Cuenta complementaria con estética de meme, para jóvenes y ningunistas. <b>Nunca anuncia propuestas</b>: eso queda en la oficial. Mito vs. realidad · salimos a preguntar · costado humano · respuesta rápida.</p>
+          <p class="kick" style="margin-bottom:8px">Mito vs. realidad · tocá la tarjeta</p>
+          <div class="mitos" id="mitos"></div>
+        </div>
+        <div class="juego">
+          <p class="kick" style="margin-bottom:6px">Salimos a preguntar · probalo vos</p>
+          <div class="qsel" id="qsel"></div>
+          <p id="gQ" style="font-weight:600"></p>
+          <div class="val" id="gVal">30 %</div>
+          <input type="range" id="gRange" min="0" max="100" value="30" aria-label="Tu respuesta en porcentaje">
+          <button class="btn" id="gGo" style="font-size:15px;padding:10px 18px">Ver el dato real</button>
+          <p class="res" id="gRes" aria-live="polite"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 9 ACCIONES -->
+<section class="slide claro" id="s9" data-name="Acciones y spot" data-tema="claro">
+  <div class="wrap">
+    <p class="kick">Plan de acciones</p>
+    <div class="tabs" role="tablist" data-tabs="acc" style="margin-top:0">
+      <button role="tab" aria-selected="true" data-p="a1">La Mesa Larga</button>
+      <button role="tab" aria-selected="false" data-p="a2">El spot</button>
+    </div>
+    <div class="panel" id="a1" role="tabpanel">
+      <div class="aai">
+        <div>
+          <h2 style="font-size:clamp(32px,4.2vw,60px)">la mesa larga de las <em>24 provincias</em></h2>
+          <div class="datos-aai"><span>Acción de alto impacto</span><span>sáb 4 de septiembre de 2027</span><span>18 h</span><span>Casa Histórica de Tucumán</span></div>
+          <div class="mesa24">
+            <div class="tab" id="mesa24" aria-label="Mesa de 24 tramos, uno por jurisdicción"></div>
+            <p class="info" id="mesaInfo">Pasá por cada tramo. Kicillof está <b>en el medio, no en la cabecera</b>: primero escucha la ronda de los 24.</p>
+          </div>
+          <div class="pasos3">
+            <div><b>1 · La ronda</b>24 voces: trabajadores formales e informales, productores y emprendedores con un producto regional y una tarjeta: "Lo que mi provincia necesita".</div>
+            <div><b>2 · El Acta</b>Firma del Acta de la Mesa Federal: 24 compromisos armados con las demandas de la plataforma, publicados completos en la web.</div>
+            <div><b>3 · La silla</b>Alguien trae una silla y la mesa se alarga. Placa: "Siempre hay silla para uno más".</div>
+          </div>
+          <div class="semana">
+            <div><b>Jue 2 · Córdoba</b>Día de la Industria: PyME metalúrgica y clase pública en la UNC. Pizarrón: "Ordenar ≠ ajustar".</div>
+            <div><b>Vie 3 · La Rioja</b>Timbreo federal "Una silla más" en ocho provincias, almuerzo reservado sin prensa y encuentro de fiscales.</div>
+            <div><b>Sáb 4 · Tucumán</b>Mesitas barriales y, a las 18, la Mesa Larga. Material a medios del interior a las 20.</div>
+          </div>
+        </div>
+        <div>
+          <figure class="foto"><img src="fotos/tucuman-casa.jpg" alt="Fachada de la Casa Histórica de la Independencia en Tucumán"><figcaption>Casa Histórica de la Independencia, Tucumán. Foto: Horacio Cambeiro · CC BY-SA 4.0</figcaption></figure>
+          <p class="src" style="margin-top:12px">Imagen: plano de dron con la Casa Histórica de fondo. Prensa: convocatoria 72 h antes, medios de las 24 jurisdicciones, streaming y punto de prensa sin atril. Riesgos: escrache (seguridad discreta), lluvia (carpa), "puesta en escena" (participantes reales y verificables).</p>
+        </div>
+      </div>
+    </div>
+    <div class="panel" id="a2" role="tabpanel" hidden>
+      <div class="spotgrid">
+        <div class="spotvid">
+          <video id="spotV" src="piezas/spot-la-mesa-larga.mp4" poster="piezas/spot-la-mesa-larga.jpg" controls playsinline preload="metadata"></video>
+          <span class="maq" style="margin-top:8px">Animatic · fotos reales de archivo</span>
+        </div>
+        <div>
+          <h2 style="font-size:clamp(30px,3.6vw,54px)">spot <em>"la mesa larga"</em> · 60 s</h2>
+          <p style="font-size:14.5px;line-height:1.5">Presentarlo como alternativa capaz de ordenar la economía, recuperar ingresos y garantizar un Estado que funcione. Registro documental, personas reales, luz natural, música instrumental suave.</p>
+          <div class="spot-det" id="spotDet" aria-live="polite" style="margin-top:12px"></div>
+          <p class="src">Estreno el 19 de septiembre. Versiones de 60, 30 y 15 segundos (una por protagonista, con pauta en su provincia). El animatic usa fotos de los lugares; en el rodaje se filma a las personas reales.</p>
+        </div>
+      </div>
+      <div class="spot" id="spot"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 10 CALENDARIO -->
+<section class="slide oscuro" id="s10" data-name="Calendario y cierre" data-tema="oscuro">
+  <div class="wrap">
+    <p class="kick rv">Calendario</p>
+    <h2 class="rv d1" style="font-size:clamp(32px,4.4vw,62px)">de acá al <em>24 de octubre</em></h2>
+    <div class="linea rv d2">
+      <div>
+        <div class="etapas">
+          <div style="background:#9DB3C6" title="Precampaña: febrero a mayo">Precampaña · feb–may</div>
+          <div style="background:#BFDDF3" title="Producción del spot: junio">Spot · jun</div>
+          <div style="background:#7CC8F0" title="Instalación: mayo a agosto">Instalación · may–ago</div>
+          <div style="background:var(--cel)" title="Lanzamiento y desarrollo: 4 de septiembre a 14 de octubre">Lanzamiento · 4/9–14/10</div>
+          <div style="background:#F09A86" title="Cierre: 15 a 21 de octubre">Cierre</div>
+          <div style="background:var(--tierra);color:#fff" title="Veda y elección: 22 a 24 de octubre">24/10</div>
+        </div>
+        <p class="src" style="margin:12px 0 8px">Zoom a la campaña: septiembre y octubre de 2027. El timbreo "Una silla más" se repite todos los fines de semana.</p>
+        <div class="hitos" id="hitos"></div>
+      </div>
+    </div>
+    <div class="fin rv d3">
+      <div>De <b>cuánto Estado</b> a <b>si el Estado funciona</b>.</div>
+      <div>Del <b>ajuste</b> a <b>si el laburo alcanza</b>.</div>
+      <div>De la <b>figura bonaerense</b> a un <b>liderazgo federal</b>.</div>
+    </div>
+    <p class="cierre rv d4">en nuestra mesa siempre hay <em>silla para uno más.</em></p>
+    <p class="rv d4" style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap"><button class="btn ghost" data-open="dlg-fuentes">Método y fuentes</button><a class="btn ghost" href="#s1">Volver al inicio</a></p>
+    <p class="pie">Seminario: Consultoría y Comunicación Política Aplicada · UBA · Grupo 2 · Matías Balmaceda · Maia Fleischman · Sofía García · Pilar Peón · Blas Leandro Sires</p>
+  </div>
+  <div class="mesa" data-sillas="24" data-final></div>
+</section>
+</main>
+
+<!-- DIALOGS -->
+<dialog id="dlg-obj"><button class="x" aria-label="Cerrar">×</button>
+  <h3>Los 7 objetivos secundarios</h3>
+  <ol>
+    <li><b>Reforzar fortalezas y neutralizar debilidades.</b> Apropiarse de la agenda de empleo, ingresos, educación y salud. Cada dato de gestión, con su fuente.</li>
+    <li><b>Movilizar el núcleo.</b> Llevar la intención de voto efectiva en NSE bajo, medio y jóvenes por encima del 45–50 % al cierre y reducir el "sin opinión" (7 %).</li>
+    <li><b>Bajar la imagen negativa.</b> Reducir el 39 % general y sumar entre 5 y 8 puntos en CABA y NSE alto.</li>
+    <li><b>Cambiar el eje.</b> De "Estado sí / Estado no" a un Estado que funciona: eficaz, moderno y medible.</li>
+    <li><b>Ampliar el mapa competitivo.</b> Brecha con Milei de menos de dos dígitos en Chubut, La Pampa, Jujuy, Neuquén, Corrientes, Entre Ríos y Misiones (Zentrix).</li>
+    <li><b>Coalición federal</b> con gobernadores, intendentes de otros partidos, cooperativas y PyMEs, para compensar el déficit de consenso (10 %).</li>
+    <li><b>Voz propia, ni K ni anti-K.</b></li>
+  </ol>
+</dialog>
+<dialog id="dlg-cont"><button class="x" aria-label="Cerrar">×</button>
+  <h3>Escenarios de contingencia</h3>
+  <ul>
+    <li><b>Si CFK se pronuncia</b> sobre la candidatura (a favor o en contra): se agradece o se respeta en una frase y se vuelve a la agenda propia.</li>
+    <li><b>Si hay novedades judiciales</b> que la involucren: "Respeto a la Justicia y a su historia", y vuelta a la agenda económica.</li>
+    <li><b>Si un rival insiste:</b> "Gobierno con intendentes de todos los partidos. Acá vine a hablar del país."</li>
+  </ul>
+</dialog>
+<dialog id="dlg-tv"><button class="x" aria-label="Cerrar">×</button>
+  <h3>"¿Por qué votarlo?"</h3>
+  <p style="font-size:17px;line-height:1.6">"Porque hoy en la Argentina hay mucha gente que labura todo el día y no llega a fin de mes. El que tiene un trabajo en blanco y le alcanza cada vez menos; el que labura en la informalidad y no sabe si la semana que viene va a cobrar; el que abrió su PyME y está a nada de cerrarla; el jubilado al que la hija le tiene que ayudar con los remedios. A esa mayoría vengo a representar. Este modelo le sirve a unos pocos. Yo gobierno la provincia más grande del país y demostré que se pueden hacer escuelas y hospitales con menos recursos. Quiero un Estado que funcione: <b>la Argentina no necesita que la salven, necesita que la gobiernen bien.</b>"</p>
+  <p class="src">Respuesta modelo para entrevista de TV, escrita por el grupo.</p>
+</dialog>
+<dialog id="dlg-fuentes"><button class="x" aria-label="Cerrar">×</button>
+  <h3>Método y fuentes</h3>
+  <p><b>Encuesta:</b> cuestionario de 25 preguntas. P1–P9 clima y agenda · P10–P14 imagen y gestión · P15–P25 Kicillof candidato.</p>
+  <p style="margin-top:10px"><b>Siete focus groups</b></p>
+  <table><thead><tr><th>#</th><th>Región</th><th>Identidad de voto</th><th>NSE</th><th>Edad</th></tr></thead><tbody>
+    <tr><td>1</td><td>AMBA</td><td>Núcleo duro peronista</td><td>Mixto</td><td>Mixto</td></tr>
+    <tr><td>2</td><td>NEA</td><td>Indecisos</td><td>Mixto</td><td>20–35</td></tr>
+    <tr><td>3</td><td>AMBA</td><td>Opositores al peronismo</td><td>Mixto</td><td>Mixto</td></tr>
+    <tr><td>4</td><td>Patagonia</td><td>Núcleo duro peronista</td><td>C2–C3</td><td>20–35</td></tr>
+    <tr><td>5</td><td>NOA</td><td>Indecisos</td><td>C2–C3</td><td>36–49</td></tr>
+    <tr><td>6</td><td>Región Pampeana</td><td>Indecisos</td><td>D1–D2</td><td>50–70</td></tr>
+    <tr><td>7</td><td>Cuyo</td><td>Opositores al peronismo</td><td>C2–C3</td><td>36–49</td></tr>
+  </tbody></table>
+  <p><b>Fuentes:</b> Brief de la cátedra (2026) · Zentrix (2026), aprobación de gestión · CEPA (2026), empresas y empleo registrado · INDEC (2026), IPC y capacidad instalada · BCRA (2026), REM · Pulsar UBA (2025), informes 1 y 4 · CB Consultora (junio 2026), ranking de gobernadores · Argentina Federal (2026) · CIN (2026), financiamiento universitario.</p>
+  <p style="margin-top:12px"><b>Fotos:</b> imágenes reales de archivo con licencia libre, tomadas de Wikimedia Commons. Se usan como maqueta: los textos sobre las fotos son propuestas del grupo.</p>
+  <ul id="creditos" style="font-size:12.5px;margin-top:8px"></ul>
+</dialog>
+
+<script>
+(()=>{
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const el=(t,c,h)=>{const e=document.createElement(t); if(c) e.className=c; if(h!=null) e.innerHTML=h; return e;};
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* sillas */
+const SILLA='<svg class="silla" viewBox="0 0 14 20" aria-hidden="true"><path d="M3 1v18M3 11h9v8M3 11"/></svg>';
+$$('.mesa').forEach(m=>{const n=+m.dataset.sillas; for(let i=0;i<n;i++){const s=el('span',null,SILLA); if(m.hasAttribute('data-anim')||m.hasAttribute('data-final')){s.style.opacity=0;s.style.transition='opacity .3s '+(i*0.06)+'s';} m.appendChild(s);}
+  if(m.hasAttribute('data-final')){const s=el('span',null,SILLA.replace('class="silla"','class="silla" style="width:20px;height:28px"')); s.querySelector('path').style.stroke='var(--tierra)'; s.style.opacity=0; s.style.transition='opacity .5s 2.2s'; s.title='Una silla más'; m.appendChild(s);} });
+
+/* mesa grande de la portada: se suman las sillas de las provincias y después la gente */
+const MGP=['Jujuy','Salta','Formosa','Chaco','Misiones','Corrientes','Catamarca','Tucumán','Santiago del Estero','La Rioja','San Juan','Córdoba','Santa Fe','Entre Ríos','Mendoza','San Luis','Buenos Aires','CABA','La Pampa','Neuquén','Río Negro','Chubut','Santa Cruz','Tierra del Fuego'];
+const MGG=['un jubilado','una estudiante','una pyme','una yerbatera','una enfermera','un obrero','una docente','un repartidor','un tambero','una cooperativa'];
+const mg=$('#mesaG'), mga=$('#mgArea'), mgK=$('#mgKick'), mgT=$('#mgTxt'); let mgTimers=[];
+const mgAt=(ms,fn)=>mgTimers.push(setTimeout(fn,ms));
+function mgSay(k,t,cls){ mgT.classList.add('out'); setTimeout(()=>{ mgK.textContent=k; mgT.textContent=t; mgT.className=cls||''; },160); }
+function mgSilla(i){ const top=i%2===0, col=Math.floor(i/2), x=6+col*(84/11);
+  const d=document.createElement('span'); d.className='mg-s '+(top?'top':'bot'); d.style.left=x+'%'; d.innerHTML='<i>'+MGP[i]+'</i>'; mga.appendChild(d); return d; }
+function mgCiclo(){ mgTimers.forEach(clearTimeout); mgTimers=[]; mg.classList.remove('reset'); mga.querySelectorAll('.mg-s').forEach(x=>x.remove());
+  const STEP=420; let t=300;
+  MGP.forEach((p,i)=>{ mgAt(t,()=>{ mgSilla(i); mgSay('24 provincias en la mesa',p); }); t+=STEP; });
+  t+=500;
+  MGG.forEach((g,i)=>{ mgAt(t,()=>{ const ss=[...mga.querySelectorAll('.mg-s:not(.uno)')]; ss.forEach(x=>x.classList.remove('hl')); ss[(i*7+3)%ss.length].classList.add('hl'); mgSay('en cada silla',g); }); t+=1000; });
+  mgAt(t,()=>{ mga.querySelectorAll('.hl').forEach(x=>x.classList.remove('hl')); const u=document.createElement('span'); u.className='mg-s uno'; u.style.left='95%'; u.innerHTML='<i></i>'; mga.appendChild(u); mgSay('y siempre hay silla para','uno más','uno'); });
+  t+=3800;
+  mgAt(t,()=>mg.classList.add('reset'));
+  mgAt(t+800,mgCiclo); }
+if(reduce){ MGP.forEach((p,i)=>mgSilla(i)); mgK.textContent='24 provincias en la mesa'; mgT.textContent='y siempre hay silla para uno más'; } else mgCiclo();
+
+/* dots + nav */
+const slides=$$('.slide'), dots=$('#dots'), bar=$('#bar'), now=$('#now'), deck=$('#deck');
+slides.forEach((s,i)=>{const b=el('button',null,'<span>'+s.dataset.name+'</span>'); b.setAttribute('aria-label',s.dataset.name); b.onclick=()=>s.scrollIntoView({behavior:reduce?'auto':'smooth'}); dots.appendChild(b);});
+let cur=0;
+function setCur(i){ if(i!==cur && slides[i].id==='s9' && window.resetMesa24) resetMesa24(); cur=i; const s=slides[i]; now.textContent=s.dataset.name;
+  const t='sobre-'+s.dataset.tema; bar.className='bar '+t; dots.className='dots '+t;
+  [...dots.children].forEach((d,j)=>d.setAttribute('aria-current',i===j));}
+const io=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); enter(e.target);} }),{threshold:.15});
+slides.forEach(s=>io.observe(s));
+function track(){const mid=innerHeight/2;
+  if(window.syncS8) syncS8();
+  const sv=document.getElementById('spotV'), r9=document.getElementById('s9').getBoundingClientRect(); if(sv && !sv.paused && (r9.bottom<innerHeight*.3 || r9.top>innerHeight*.7)) sv.pause();
+  slides.forEach(s=>{const r=s.getBoundingClientRect(); if(r.top<innerHeight*.85 && r.bottom>innerHeight*.15 && !s.classList.contains('in')){s.classList.add('in'); enter(s);}}); const i=slides.findIndex(s=>{const r=s.getBoundingClientRect(); return r.top<=mid && r.bottom>mid;}); if(i>=0 && i!==cur) setCur(i);}
+deck.addEventListener('scroll',track,{passive:true}); addEventListener('scroll',track,{passive:true}); cur=-1; setTimeout(track,60); addEventListener('load',track); addEventListener('resize',track);
+addEventListener('keydown',e=>{ if(document.querySelector('dialog[open]')) return; if(['INPUT','TEXTAREA'].includes(document.activeElement.tagName)) return;
+  let k=e.key; if(['ArrowDown','PageDown',' ','ArrowRight'].includes(k)){e.preventDefault(); next(1);} if(['ArrowUp','PageUp','ArrowLeft'].includes(k)){e.preventDefault(); next(-1);} if(k==='Home'){e.preventDefault();go(0);} if(k==='End'){e.preventDefault();go(slides.length-1);} });
+let tgt=null, tgtT=0;
+function go(i){i=Math.max(0,Math.min(slides.length-1,i)); tgt=i; tgtT=Date.now(); slides[i].scrollIntoView({behavior:reduce?'auto':'smooth'}); setCur(i); updPager();}
+function next(d){ const base=(tgt!==null && Date.now()-tgtT<900)?tgt:cur; go(base+d); }
+
+/* flechas y modo presentación */
+const pager=el('div','pager sobre-oscuro');
+pager.innerHTML='<button type="button" id="pgPrev" aria-label="Slide anterior">←<span>anterior</span></button><button type="button" id="pgNext" aria-label="Slide siguiente"><span>siguiente</span>→</button><button type="button" id="pgPres" class="pres" aria-label="Presentar en pantalla completa">⛶<span>Presentar</span></button>';
+document.body.appendChild(pager);
+$('#pgPrev').onclick=()=>next(-1); $('#pgNext').onclick=()=>next(1);
+function updPager(){ const i=(tgt!==null && Date.now()-tgtT<900)?tgt:cur; $('#pgPrev').disabled=i<=0; $('#pgNext').disabled=i>=slides.length-1; pager.className='pager sobre-'+(slides[Math.max(0,i)].dataset.tema); }
+function setPres(on){ document.body.classList.toggle('present',on); setTimeout(()=>window.fit&&fit(),30); setTimeout(()=>window.fit&&fit(),400); $('#pgPres').innerHTML=on?'✕<span>Salir</span>':'⛶<span>Presentar</span>'; $('#pgPres').setAttribute('aria-label',on?'Salir de la presentación':'Presentar en pantalla completa'); setTimeout(()=>go(Math.max(0,cur)),60); }
+$('#pgPres').onclick=()=>{ const on=!document.body.classList.contains('present');
+  if(on){ (document.documentElement.requestFullscreen?document.documentElement.requestFullscreen():Promise.reject()).catch(()=>{}); setPres(true); }
+  else { if(document.fullscreenElement) document.exitFullscreen().catch(()=>{}); setPres(false); } };
+document.addEventListener('fullscreenchange',()=>{ if(!document.fullscreenElement && document.body.classList.contains('present')) setPres(false); });
+let wheelT=0;
+addEventListener('wheel',e=>{ if(!document.body.classList.contains('present') || document.querySelector('dialog[open]')) return; if(e.target.closest && e.target.closest('.linea,dialog')) return; e.preventDefault(); if(Math.abs(e.deltaY)<8) return; const n=Date.now(); if(n-wheelT<800) return; wheelT=n; next(e.deltaY>0?1:-1); },{passive:false});
+let ty=null; addEventListener('touchstart',e=>{ty=e.touches[0].clientY;},{passive:true});
+addEventListener('touchend',e=>{ if(!document.body.classList.contains('present')||ty===null) return; const dy=ty-e.changedTouches[0].clientY; if(Math.abs(dy)>50) next(dy>0?1:-1); ty=null; },{passive:true});
+setInterval(updPager,400);
+
+/* que cada slide entre entera en la pantalla (se achica sola si hace falta) */
+const mqMovil=matchMedia('(max-width:900px), (max-height:640px)');
+window.fit=fit;
+function fitSlide(s){ const pres=document.body.classList.contains('present'), w=s.querySelector('.wrap'); if(!w) return;
+  const prev=w.style.zoom; w.style.zoom='';
+  if(mqMovil.matches && !pres) return;
+  const cs=getComputedStyle(s), avail=(s.clientHeight-parseFloat(cs.paddingTop)-parseFloat(cs.paddingBottom))*.97, h=w.scrollHeight;
+  let z=''; if(h>avail) z=Math.max(pres?.3:.5,avail/h).toFixed(3);
+  if(z && prev && Math.abs(z-prev)<.012) z=prev;
+  w.style.zoom=z; }
+function fit(){ slides.forEach(fitSlide); }
+let fitT; const fitSoon=()=>{clearTimeout(fitT); fitT=setTimeout(fit,80);};
+/* si cambia el contenido de una slide (pestañas, tarjetas, textos que rotan), se vuelve a medir esa slide */
+const fitQ=new Set(); let fitQT;
+new MutationObserver(ms=>{ ms.forEach(m=>{ const s=(m.target.nodeType===1?m.target:m.target.parentElement)?.closest('.slide'); if(s) fitQ.add(s); });
+  clearTimeout(fitQT); fitQT=setTimeout(()=>{ fitQ.forEach(fitSlide); fitQ.clear(); },120); })
+  .observe(deck,{subtree:true,childList:true,characterData:true,attributes:true,attributeFilter:['hidden','aria-pressed','aria-selected','open']});
+addEventListener('resize',fitSoon); document.addEventListener('fullscreenchange',fitSoon); addEventListener('load',fitSoon);
+if(document.fonts) document.fonts.ready.then(fitSoon);
+$$('[role=tab]').forEach(b=>b.addEventListener('click',fitSoon));
+$$('img').forEach(i=>i.addEventListener('load',fitSoon,{once:true}));
+fitSoon();
+$$('a[href^="#s"]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault(); go(slides.indexOf($(a.getAttribute('href'))));}));
+
+/* enter animations */
+const done=new Set();
+function enter(s){ if(done.has(s)) return; done.add(s);
+  s.querySelectorAll('[data-count]').forEach(n=>{const to=+n.dataset.count, dec=+(n.dataset.dec||0); const fmt=v=>v.toLocaleString('es-AR',{minimumFractionDigits:dec,maximumFractionDigits:dec});
+    if(reduce){n.textContent=fmt(to);return;} const t0=performance.now(), d=1100; const f=t=>{const p=Math.min(1,(t-t0)/d), e=1-Math.pow(1-p,3); n.textContent=fmt(to*e); if(p<1) requestAnimationFrame(f);}; requestAnimationFrame(f);});
+  s.querySelectorAll('.barr i').forEach(b=>{const mx=+(b.dataset.max||100); setTimeout(()=>b.style.width=(b.dataset.w/mx*100)+'%',200);});
+  s.querySelectorAll('.mesa[data-anim] span,.mesa[data-final] span').forEach(x=>x.style.opacity=1);
+}
+
+/* dialogs */
+$$('[data-open]').forEach(b=>b.addEventListener('click',()=>$('#'+b.dataset.open).showModal()));
+$$('dialog').forEach(d=>{d.querySelector('.x').onclick=()=>d.close(); d.addEventListener('click',e=>{if(e.target===d) d.close();});});
+
+/* tabs */
+$$('[data-tabs]').forEach(tl=>{const bs=[...tl.querySelectorAll('[role=tab]')];
+  bs.forEach(b=>b.addEventListener('click',()=>{bs.forEach(x=>{x.setAttribute('aria-selected',x===b); $('#'+x.dataset.p).hidden=x!==b;}); syncPiezas();}));});
+
+/* flip helper */
+function flip(front,back,cls){const b=el('button','flip '+(cls||''),'<span class="in"><span class="f">'+front+'</span><span class="b">'+back+'</span></span>'); b.type='button'; b.setAttribute('aria-pressed','false'); b.onclick=()=>b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')!=='true'); return b;}
+
+/* actores */
+[['Javier Milei / LLA','Oficialismo. Núcleo en varones jóvenes y sectores medios-altos.','Adversario principal: contraste con datos, sin agresiones.'],
+ ['María Eugenia Vidal','Exgobernadora de PBA, perfil moderado.','Única comparación directa de gestión. Deuda en dólares: de 9.300 a 11.300 millones.'],
+ ['Sergio Uñac','Peronismo del interior. Se define como "contrincante directo".','Coincidir en público, competir adentro.'],
+ ['Dante Gebel','Outsider. Compite por el voto antipolítico.','Diferenciarse con respeto: "Gobernar son cuatro años".'],
+ ['Myriam Bregman / FIT','Comparte el diagnóstico crítico.','No confrontar: "La diferencia es que nosotros lo resolvemos gobernando".'],
+ ['CFK y el kirchnerismo','Núcleo del piso electoral, con tensiones por el liderazgo.','Distancia sin ruptura (ver "Voz propia").'],
+ ['Otros peronistas','Massa, Grabois, Quintela.','Riesgo de fragmentación del voto opositor.'],
+ ['Gobernadores de persuasión','Peso territorial propio.','Socios para la coalición federal.']
+].forEach(a=>$('#actores').appendChild(flip('<b>'+a[0]+'</b><small>tocá →</small>','<span><strong>'+a[1]+'</strong>'+a[2]+'</span>')));
+
+/* foda */
+const F={f:['Fortalezas',['93 % de conocimiento nacional: no hay que instalar al candidato.','Base en PBA: 51 % de imagen positiva, estructura e intendentes propios.','Casi siete años de gestión en la provincia más grande del país.','Obra demostrable: 1.461 aulas, 327 edificios educativos y 206 centros de salud.','Atributos de preparación (30 %) y honestidad (25 %).']],
+ o:['Oportunidades',['La economía es el principal problema (58 %) y el candidato es economista.','Desgaste del gobierno: 58,8 % de desaprobación y 48 % pide cambio de rumbo.','No hay otro espacio opositor capaz de ser la alternativa.','Consenso en defensa de la educación, la salud y la universidad pública.','Posibilidad de sumar gobernadores, intendentes de otros partidos y PyMEs.']],
+ d:['Debilidades',['Imagen negativa casi igual a la positiva (39 % contra 40 %).','Débil asociación con inflación, economía y seguridad.','Bajo liderazgo (10 %), consenso (10 %) y cercanía (15 %).','20 % lo asocia con la corrupción.','Imagen de "figura bonaerense": 27 % positiva en CABA y 29 % en NSE alto.']],
+ a:['Amenazas',['Fragmentación del peronismo.','Tensión con CFK: romper debilita el piso; depender limita la proyección.','Polarización: confrontar solo con Milei no resuelve las dudas sobre su capacidad de gobernar.','Inseguridad (34 %) como flanco vulnerable.','Su paso por el Ministerio de Economía (YPF, inflación) como blanco de los rivales.']]};
+const fw=$('#foda'), fl=$('#fodalist');
+Object.entries(F).forEach(([k,v],i)=>{const b=el('button',null,'<span class="L">'+k.toUpperCase()+'</span><span>'+v[0]+'</span>'); b.dataset.k=k; b.setAttribute('role','tab'); b.onclick=()=>selF(k); fw.appendChild(b);});
+function selF(k){[...fw.children].forEach(b=>b.setAttribute('aria-selected',b.dataset.k===k)); fl.className='fodalist rv'+((k==='d'||k==='a')?' neg':''); fl.innerHTML='<ul>'+F[k][1].map(x=>'<li>'+x+'</li>').join('')+'</ul>'; fl.style.opacity=1; fl.style.transform='none';}
+selF('f');
+
+/* conceptos */
+[['Laburo','que alcance','En todas sus formas. El problema no es solo tener trabajo: es que el ingreso alcance y sea estable.'],
+ ['Federal','unidad','Unidad nacional y consenso, contra la imagen de figura bonaerense.'],
+ ['Aguante','un país con','El que se levanta temprano a trabajar, estudiar o sostener su PyME a pesar de las crisis.']
+].forEach(c=>$('#conceptos').appendChild(flip('<small>'+c[1]+'</small><b>'+c[0]+'</b>','<span>'+c[2]+'</span>')));
+
+/* carrusel en el celular */
+const CAR=['01','02','03','04','05','06'], tr=$('#carru .track'), cd=$('#carruDots'); let ci=0, ctimer=null;
+CAR.forEach((n,i)=>{const im=document.createElement('img'); im.src='piezas/carrusel/'+n+'.jpg'; im.alt='Placa '+(i+1)+' del carrusel de Oberá'; tr.appendChild(im); cd.appendChild(document.createElement('i'));});
+function showC(i){ci=(i+CAR.length)%CAR.length; tr.style.transform='translateX('+(-100*ci)+'%)'; [...cd.children].forEach((d,j)=>d.classList.toggle('on',j===ci));}
+function restartC(){clearInterval(ctimer); if(!reduce) ctimer=setInterval(()=>showC(ci+1),3000);}
+showC(0);
+$('#carru').addEventListener('click',e=>{const r=e.currentTarget.getBoundingClientRect(); showC(ci+(e.clientX-r.left<r.width/3?-1:1)); restartC();});
+
+/* reel en el celular */
+const V=$('#reelV'), pasos=$$('#pasos li'), marcas=[0,4,6,10,14,18,22,26,30];
+V.addEventListener('timeupdate',()=>{let k=0; marcas.forEach((m,j)=>{if(V.currentTime>=m) k=j;}); pasos.forEach((p,j)=>p.classList.toggle('on',j===k));});
+$('#reelSnd').onclick=()=>{ V.muted=!V.muted; if(V.paused) V.play().catch(()=>{}); $('#reelSnd').textContent=V.muted?'🔇':'🔊'; $('#reelSnd').setAttribute('aria-label',V.muted?'Activar el sonido del reel':'Silenciar el reel'); };
+const piezas=$('#r2'), s8=$('#s8'); let s8vis=false;
+function syncPiezas(){ if(!piezas.hidden && s8vis){restartC(); if(!reduce) V.play().catch(()=>{});} else {clearInterval(ctimer); V.pause();} }
+new IntersectionObserver(es=>es.forEach(e=>{s8vis=e.isIntersecting; syncPiezas();}),{threshold:.3}).observe(s8);
+window.syncS8=()=>{const r=s8.getBoundingClientRect(), v=r.top<innerHeight*.7 && r.bottom>innerHeight*.3; if(v!==s8vis){s8vis=v; syncPiezas();}};
+
+/* mitos */
+[['"Kicillof es un dirigente solo bonaerense"','24','jurisdicciones en la mesa: el lanzamiento es en Tucumán, no en La Plata.','Plan de campaña'],
+ ['"El país banca el rumbo"','58,8 %','desaprueba la gestión de Milei.','Zentrix · ago 2026'],
+ ['"Nadie quiere cambiar nada"','48 %','quiere un cambio importante de rumbo.','Brief de la cátedra'],
+ ['"Kicillof quiere más Estado"','Que funcione','Ni ausente ni inflado: se mide con resultados.','Pregunta incómoda #1']
+].forEach(m=>$('#mitos').appendChild(flip('<small>Mito</small>'+m[0]+'<small>tocá →</small>','<small>Realidad</small><span><strong'+(m[1].length>6?' style="font-size:22px"':'')+'>'+m[1]+'</strong><p>'+m[2]+'</p></span><small>'+m[3]+'</small>')));
+
+/* juego */
+const qs=[{l:'Desaprobación',q:'¿Qué porcentaje desaprueba la gestión de Milei?',r:58.8,s:'Zentrix, agosto 2026.'},
+ {l:'Cambio de rumbo',q:'¿Cuántos piden un cambio importante de rumbo?',r:48,s:'Brief de la cátedra.'},
+ {l:'Educación y salud',q:'¿Cuántos rechazan recortar educación, salud y cultura?',r:75,s:'Pulsar UBA (3 de cada 4).'}];
+let qi=0; const rng=$('#gRange');
+qs.forEach((q,i)=>{const b=el('button',null,q.l); b.type='button'; b.onclick=()=>setQ(i); $('#qsel').appendChild(b);});
+function setQ(i){qi=i; [...$('#qsel').children].forEach((b,j)=>b.setAttribute('aria-pressed',i===j)); $('#gQ').textContent=qs[i].q; $('#gRes').textContent='Elegí un número y tocá "Ver el dato real".';}
+rng.oninput=()=>$('#gVal').textContent=rng.value+' %';
+$('#gGo').onclick=()=>{const q=qs[qi], d=Math.abs(rng.value-q.r); $('#gRes').innerHTML='<b style="font-family:var(--t-h);font-size:22px;color:var(--cel)">'+q.r.toLocaleString('es-AR')+' %</b> · '+(d<=5?'¡Casi exacto! 🎯':d<=15?'Cerca, pero no tanto.':'Ups, lejos 😅')+' <span class="src" style="display:block">'+q.s+'</span>';};
+setQ(0);
+
+/* mesa 24 */
+const prov=['Jujuy','Salta','Formosa','Chaco','Misiones','Corrientes','Catamarca','Tucumán','Santiago del Estero','La Rioja','San Juan','Córdoba','Santa Fe','Entre Ríos','Mendoza','San Luis','Buenos Aires','CABA','La Pampa','Neuquén','Río Negro','Chubut','Santa Cruz','Tierra del Fuego'];
+prov.splice(12,0,null);
+prov.forEach((p,i)=>{const b=el('button'); b.type='button'; b.setAttribute('aria-label',p||'Kicillof'); if(!p) b.classList.add('axel');
+  const show=()=>{$$('#mesa24 button').forEach(x=>x.classList.remove('sel')); if(p) b.classList.add('sel'); $('#mesaInfo').innerHTML=p?'<b>'+p+'</b> · un trabajador, productor o emprendedor con un producto regional y la tarjeta "Lo que mi provincia necesita".':'<b>Kicillof</b> · en el medio de la mesa, no en la cabecera. Primero escucha la ronda de los 24.';};
+  b.innerHTML=SILLA; b._show=show;
+  b.onmouseenter=show; b.onfocus=show; b.onclick=show; $('#mesa24').appendChild(b);});
+/* la ronda de los 24 pasa sola: se sienta uno por provincia y al final Kicillof, en el medio */
+(()=>{ const tab=$('#mesa24'), bs=[...tab.children], orden=bs.filter(b=>!b.classList.contains('axel')), ax=bs.find(b=>b.classList.contains('axel'));
+  let k=0, pausa=false; tab.addEventListener('mouseenter',()=>pausa=true); tab.addEventListener('mouseleave',()=>pausa=false);
+  tab.addEventListener('focusin',()=>pausa=true); tab.addEventListener('focusout',()=>pausa=false);
+  if(reduce){ bs.forEach(b=>b.classList.add('lleno')); return; }
+  window.resetMesa24=()=>{ bs.forEach(b=>b.classList.remove('lleno','sel')); k=0; };
+  setInterval(()=>{ if(pausa || $('#a1').hidden) return;
+    if(k<orden.length){ orden[k].classList.add('lleno'); orden[k]._show(); k++; }
+    else if(k===orden.length){ ax.classList.add('lleno'); ax._show(); k++; }
+    else if(k<orden.length+3){ k++; }
+    else { bs.forEach(b=>b.classList.remove('lleno','sel')); k=0; } },1100); })();
+
+/* spot */
+const SP=[['0:00','Enfermera · conurbano','Me levanto a las cinco. A las siete entro a la guardia.'],
+ ['0:06','Empresario · Córdoba','Tengo doce empleados. Este año estuvimos cerca de cerrar.'],
+ ['0:12','Yerbatero · Misiones','Detrás de cada kilo de yerba hay mucho laburo.'],
+ ['0:18','Jubilado · Mendoza','Mi hija me tiene que ayudar a pagar los remedios.'],
+ ['0:24','Estudiante · Jujuy','Soy la primera de mi familia en la universidad. Y a la noche reparto para pagarme el viaje.'],
+ ['0:30','Obrero · Chubut','Trabajo todo el día, en negro, con miedo a quedarme sin nada.'],
+ ['0:36','Todos llegan a la mesa','Este país está lleno de gente que trabaja, produce y se esfuerza todos los días.'],
+ ['0:44','Kicillof a cámara','Podemos ordenar la economía, que el laburo alcance y tener un Estado que funcione. Sin dejar a nadie tirado.'],
+ ['0:54','Llega una silla','En nuestra mesa siempre hay silla para uno más. Axel Presidente 2027.']];
+const SPT=[0,6,12,18,24,30,36,44,54], SV=$('#spotV'); let spi=-1;
+SP.forEach((s,i)=>{const b=el('button',null,'<b>'+s[0]+'</b>'+s[1]); b.type='button'; b.onclick=()=>{selS(i); const go=()=>{SV.currentTime=SPT[i]+.05; SV.play().catch(()=>{});}; if(SV.readyState>=1) go(); else {SV.addEventListener('loadedmetadata',go,{once:true}); SV.load();}}; $('#spot').appendChild(b);});
+SV.addEventListener('timeupdate',()=>{let k=0; SPT.forEach((m,j)=>{if(SV.currentTime>=m) k=j;}); if(k!==spi) selS(k);});
+function selS(i){spi=i; [...$('#spot').children].forEach((b,j)=>b.classList.toggle('sel',i===j)); $('#spotDet').innerHTML='<span class="src" style="margin:0">'+SP[i][0]+' · '+SP[i][1]+(i===6?' · voz en off':i===8?' · placa final':'')+'</span><q>'+SP[i][2]+'</q>';}
+selS(0);
+
+/* hitos: escala feb 1 = 0 → oct 24 */
+const start=new Date(2027,7,31), end=new Date(2027,9,25), span=end-start, pos=d=>((d-start)/span*100);
+[['4/9 Mesa Larga · Tucumán',new Date(2027,8,4),1],['11/9 Oberá',new Date(2027,8,11)],['19/9 Estreno del spot',new Date(2027,8,19)],['25/9 Paraná',new Date(2027,8,25)],['5/10 Seguridad · Rosario',new Date(2027,9,5)],['9–16/10 Jujuy, Ctes., La Pampa',new Date(2027,9,12)],['21/10 Cierre · San Justo',new Date(2027,9,21),1],['24/10 Elección',new Date(2027,9,24),1]]
+.forEach(h=>{const e=el('div','hito'+(h[2]?' big':''),'<i></i><span>'+h[0]+'</span>'); e.style.left=Math.min(98.5,pos(h[1]))+'%'; $('#hitos').appendChild(e);});
+
+/* créditos */
+fetch('fotos/creditos.json').then(r=>r.json()).then(c=>{$('#creditos').innerHTML=Object.entries(c).map(([k,v])=>'<li>'+k+': '+v.autor+' · '+v.licencia+' · <a href="'+v.url+'" target="_blank" rel="noopener">Wikimedia Commons</a></li>').join('');}).catch(()=>{});
+})();
+</script>
+</body>
+</html>
